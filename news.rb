@@ -20,6 +20,6 @@ module News
 
 		valid = items.select { |a| a.pubDate > 1.week.ago }
 
-		"This week in Elm Ecosystem: " + valid.map { |a| "<b><i>Title</i></b>: #{a.title} \n <b>Date</b>: #{a.pubDate} \n <b>Link</b>: #{a.link} \n"}.join("\n")
+		"This week in Elm Ecosystem: \n" + valid.map { |a| "<b><i>Title</i></b>: #{a.title} \n <b>Date</b>: #{a.pubDate} \n <b>Link</b>: #{a.link} \n"}.join("\n")
 	end
 end
