@@ -15,3 +15,8 @@ gem "byebug", "~> 11.1"
 gem "activesupport", "~> 7.0"
 
 gem "dotenv", "~> 2.7"
+
+gem "sidekiq", "~> 6.3"
+gem "sidekiq-cron", "~> 1.2"
+
+gem "redis-namespace", "~> 1.8"

@@ -1,0 +1,6 @@
+#config/schedule.yml
+
+weekly_news_job:
+  cron: "* * * * *"
+  class: "WeeklyNewsJob"
+  queue: default
