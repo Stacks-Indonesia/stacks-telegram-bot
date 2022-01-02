@@ -1,15 +1,16 @@
+require 'byebug'
 require 'rss'
 require 'open-uri'
 require "active_support/all"
 
 module News
 	def self.get_this_week_news
-		rsses = ["https://discourse.elm-lang.org/latest.rss",
-					   "https://feeds.simplecast.com/8tQUlnkG",
-					   "https://elm-radio.com/feed.xml"]
+    rsses = ["https://feeds.simplecast.com/lKmQDG9R",
+					   "https://blog.blockstack.org/feed/"]
 
 		feeds = rsses.map do |url|
 			URI.open(url) do |rss|
+				byebug
 				feed = RSS::Parser.parse(rss)
 			end
 		end
@@ -20,6 +21,6 @@ module News
 
 		valid = items.select { |a| a.pubDate > 1.week.ago }
 
-		"This week in Elm Ecosystem: \n" + valid.map { |a| "<b><i>Title</i></b>: #{a.title} \n <b>Date</b>: #{a.pubDate} \n <b>Link</b>: #{a.link} \n"}.join("\n")
+		"This week in Stacks Ecosystem: \n" + valid.map { |a| "<b><i>Title</i></b>: #{a.title} \n <b>Date</b>: #{a.pubDate} \n <b>Link</b>: #{a.link} \n"}.join("\n")
 	end
 end
