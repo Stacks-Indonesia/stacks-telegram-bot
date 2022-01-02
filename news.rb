@@ -10,7 +10,6 @@ module News
 
 		feeds = rsses.map do |url|
 			URI.open(url) do |rss|
-				byebug
 				feed = RSS::Parser.parse(rss)
 			end
 		end
